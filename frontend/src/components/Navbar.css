@@ -1,0 +1,155 @@
+/* Modern Navbar - Transparent Glassmorphism */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #0f172a;
+}
+
+.navbar-logo svg {
+    color: #6366f1;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-user {
+    font-size: 0.9375rem;
+    color: #475569;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+/* Clean Button Styles */
+.navbar .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar .btn-primary {
+    background: transparent;
+    color: #475569;
+    border: none;
+    box-shadow: none;
+}
+
+.navbar .btn-primary:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+/* Distinct Logout Button */
+.navbar .btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+}
+
+.navbar .btn-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .navbar-user {
+        font-size: 0.875rem;
+    }
+
+    .navbar .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-container {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .navbar-logo {
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    .navbar-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .navbar-user {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .navbar .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo span {
+        font-size: 1rem;
+    }
+
+    .navbar-logo svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navbar .btn {
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.75rem;
+        flex: 1 1 45%;
+    }
+
+    .navbar .btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}

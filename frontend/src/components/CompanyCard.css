@@ -1,0 +1,129 @@
+/* Modern Company Card */
+
+.company-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f1f5f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: #e2e8f0;
+}
+
+.company-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Card Header */
+.company-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.company-card-header h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Status Badge */
+.company-card .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.company-card .status-badge.active {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+}
+
+.company-card .status-badge:not(.active) {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+}
+
+/* Card Body */
+.company-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #475569;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+}
+
+.info-row svg {
+    flex-shrink: 0;
+    color: #6366f1;
+    transition: all 0.3s;
+}
+
+.company-card:hover .info-row svg {
+    transform: scale(1.1);
+}
+
+.debt-amount {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #ef4444;
+}
+
+/* Card Footer */
+.company-card-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.company-card-footer small {
+    color: #94a3b8;
+    font-size: 0.8125rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .company-card {
+        padding: 1.25rem;
+    }
+
+    .company-card-header h3 {
+        font-size: 1rem;
+    }
+}

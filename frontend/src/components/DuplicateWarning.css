@@ -1,0 +1,244 @@
+/* Duplicate Warning Modal */
+.duplicate-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1.5rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.duplicate-modal {
+    background: white;
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+.duplicate-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #64748b;
+    z-index: 10;
+}
+
+.duplicate-modal-close:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: scale(1.05);
+}
+
+.duplicate-header {
+    padding: 2.5rem;
+    text-align: center;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.duplicate-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fef3c7, #fbbf24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #d97706;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.duplicate-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+}
+
+.duplicate-message {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.duplicate-body {
+    padding: 2rem 2.5rem;
+}
+
+.warning-badge {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.exact-badge {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border: 2px solid #f87171;
+    color: #991b1b;
+}
+
+.similar-badge {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 2px solid #fbbf24;
+    color: #92400e;
+}
+
+.duplicate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+
+.duplicate-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.duplicate-list::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.duplicate-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.duplicate-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.duplicate-actions {
+    padding: 2rem 2.5rem;
+    background: #f8fafc;
+    border-top: 2px solid #f1f5f9;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.duplicate-actions .btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancel:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-proceed {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+}
+
+.btn-proceed:hover {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -2px rgba(251, 191, 36, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .duplicate-modal {
+        margin: 1rem;
+        max-height: 85vh;
+    }
+
+    .duplicate-header {
+        padding: 2rem 1.5rem;
+    }
+
+    .duplicate-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .duplicate-body {
+        padding: 1.5rem;
+    }
+
+    .duplicate-actions {
+        padding: 1.5rem;
+        flex-direction: column;
+    }
+
+    .duplicate-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
