@@ -265,7 +265,7 @@ const DebtApprovalPanel = ({ showAll = false }) => {
                                     <td>{debt.reporter?.companyName || 'N/A'}</td>
                                     <td>
                                         <a
-                                            href={`http://localhost:3001/uploads/${debt.evidenceFile}`}
+                                            href={`${process.env.REACT_APP_API_URL?.replace('/api', '') || 'http://localhost:3001'}/uploads/${debt.evidenceFile}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="file-link"
