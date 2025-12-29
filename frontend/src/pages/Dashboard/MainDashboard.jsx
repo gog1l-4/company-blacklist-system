@@ -13,7 +13,6 @@ const MainDashboard = () => {
     const [companies, setCompanies] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
     const [duplicateWarning, setDuplicateWarning] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
