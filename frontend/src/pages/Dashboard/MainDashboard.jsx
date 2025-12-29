@@ -15,7 +15,6 @@ const MainDashboard = () => {
     const [loading, setLoading] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [duplicateWarning, setDuplicateWarning] = useState(null);
-    const [pendingSubmission, setPendingSubmission] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -108,8 +107,6 @@ const MainDashboard = () => {
             if (duplicateCheck.isDuplicate) {
                 // Show warning modal
                 setDuplicateWarning(duplicateCheck);
-                // Store the form data for potential submission after warning
-                setPendingSubmission({ formData, selectedFile });
                 return;
             }
 
@@ -135,7 +132,6 @@ const MainDashboard = () => {
             setSuccess(response.message || 'თქვენი მოთხოვნა გაიგზავნა ადმინისტრატორთან დასამტკიცებლად');
             setShowModal(false);
             setDuplicateWarning(null);
-            setPendingSubmission(null);
             setFormData({
                 targetTaxId: '',
                 targetCompanyName: '',
@@ -160,7 +156,6 @@ const MainDashboard = () => {
 
     const handleCancelDuplicate = () => {
         setDuplicateWarning(null);
-        setPendingSubmission(null);
     };
 
     const resetModal = () => {
