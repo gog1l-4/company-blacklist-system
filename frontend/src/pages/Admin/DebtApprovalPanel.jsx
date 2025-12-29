@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { RefreshCw, CheckCircle, XCircle, FileText, Download, Trash2, Filter } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { RefreshCw, CheckCircle, XCircle, FileText, Download, Trash2 } from 'lucide-react';
 import { getPendingDebts, approveDebt, rejectDebt } from '../../api/debt';
 import { updateDebtStatus, deleteCompany, getAllCompanies } from '../../api/blacklist';
 import './AdminPanel.css';
@@ -14,11 +14,7 @@ const DebtApprovalPanel = ({ showAll = false }) => {
     const [rejectionReason, setRejectionReason] = useState('');
     const [approvalFilter, setApprovalFilter] = useState(showAll ? 'approved' : 'pending'); // pending/approved/all
 
-    useEffect(() => {
-        loadPendingDebts();
-    }, []);
-
-    const loadPendingDebts = async () => {
+    const loadPendingDebts = useCallback(async () => {
         setLoading(true);
         setError('');
         try {
@@ -41,11 +37,11 @@ const DebtApprovalPanel = ({ showAll = false }) => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [approvalFilter]);
 
     useEffect(() => {
         loadPendingDebts();
-    }, [approvalFilter]); // Reload when filter changes
+    }, [loadPendingDebts]);
 
     const handleApprove = async (id) => {
         try {
